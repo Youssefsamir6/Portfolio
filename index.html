@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youssef Samir Refky — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <span class="nav-logo">YSR</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="mobile-menu" id="mobileMenu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="grid-lines"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-tag reveal">Full-Stack Developer</div>
+      <h1 class="hero-name reveal">
+        Youssef<br /><span class="accent">Samir Refky</span>
+      </h1>
+      <p class="hero-sub reveal">
+        Building complete web experiences — from database to UI — with Python, Django, React &amp; modern JavaScript.
+      </p>
+      <div class="hero-cta reveal">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+      </div>
+      <div class="hero-scroll reveal">
+        <span>Scroll to explore</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-label reveal">01 / About</div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h2 class="section-title">Motivated to build.<br />Driven to grow.</h2>
+          <p>
+            I'm a Computer Science student at CHI, graduating in June 2026. I specialise in full-stack web development — turning ideas into working, polished products from the ground up.
+          </p>
+          <p>
+            My experience spans building inventory systems with automated invoicing, integrating third-party libraries for QR codes and PDF generation, and crafting responsive interfaces people enjoy using.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">1+</span>
+              <span class="stat-label">Full-stack Project Shipped</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">7+</span>
+              <span class="stat-label">Technologies Used</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">2026</span>
+              <span class="stat-label">Graduation Year</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-card reveal">
+          <div class="card-inner">
+            <div class="card-header">
+              <div class="dots"><span></span><span></span><span></span></div>
+            </div>
+            <pre class="code-block"><code><span class="kw">const</span> <span class="var">youssef</span> = {
+  <span class="prop">role</span>: <span class="str">"Full-Stack Developer"</span>,
+  <span class="prop">location</span>: <span class="str">"Cairo, Egypt"</span>,
+  <span class="prop">languages</span>: [
+    <span class="str">"Python"</span>, <span class="str">"JavaScript"</span>,
+    <span class="str">"Java"</span>, <span class="str">"C++"</span>, <span class="str">"SQL"</span>
+  ],
+  <span class="prop">stack</span>: [
+    <span class="str">"Django"</span>, <span class="str">"React.js"</span>,
+    <span class="str">"Node.js"</span>, <span class="str">"PostgreSQL"</span>
+  ],
+  <span class="prop">available</span>: <span class="kw">true</span>,
+  <span class="prop">lookingFor</span>: <span class="str">"Junior / Internship"</span>
+};</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section section-dark" id="projects">
+    <div class="container">
+      <div class="section-label reveal">02 / Projects</div>
+      <h2 class="section-title reveal">What I've built</h2>
+      <div class="projects-grid">
+
+        <article class="project-card reveal">
+          <div class="project-top">
+            <div class="project-icon">📦</div>
+            <div class="project-links">
+              <a href="https://github.com/Youssefsamir6" target="_blank" rel="noopener" class="icon-link" title="GitHub">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.153-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3 class="project-title">Inventory &amp; Invoicing System</h3>
+          <p class="project-date">March 2025 – June 2025</p>
+          <p class="project-desc">
+            A full-stack web application for inventory management with automated invoicing. Features real-time price calculations, stock tracking, PDF invoice generation, and QR code integration.
+          </p>
+          <ul class="project-highlights">
+            <li>Dynamic forms with real-time price calculations</li>
+            <li>Automated PDF invoice generation</li>
+            <li>QR code functionality for products</li>
+            <li>AJAX-powered search with Select2</li>
+            <li>Responsive UI with Tailwind CSS</li>
+          </ul>
+          <div class="project-tags">
+            <span>Django</span>
+            <span>Python</span>
+            <span>JavaScript</span>
+            <span>PostgreSQL</span>
+            <span>Tailwind CSS</span>
+            <span>AJAX</span>
+          </div>
+        </article>
+
+        <article class="project-card project-card--placeholder reveal">
+          <div class="placeholder-inner">
+            <div class="plus-icon">+</div>
+            <p>More projects coming soon</p>
+            <span>Currently building something new</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-label reveal">03 / Skills</div>
+      <h2 class="section-title reveal">Tools &amp; Technologies</h2>
+      <div class="skills-grid">
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">Languages</h3>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-dot"></span>Python</div>
+            <div class="skill-item"><span class="skill-dot"></span>JavaScript</div>
+            <div class="skill-item"><span class="skill-dot"></span>Java</div>
+            <div class="skill-item"><span class="skill-dot"></span>C++</div>
+            <div class="skill-item"><span class="skill-dot"></span>SQL</div>
+            <div class="skill-item"><span class="skill-dot"></span>HTML &amp; CSS</div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">Frameworks &amp; Libraries</h3>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-dot"></span>Django</div>
+            <div class="skill-item"><span class="skill-dot"></span>React.js</div>
+            <div class="skill-item"><span class="skill-dot"></span>Node.js</div>
+            <div class="skill-item"><span class="skill-dot"></span>Tailwind CSS</div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">Databases</h3>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-dot"></span>PostgreSQL</div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">Tools &amp; Technologies</h3>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-dot"></span>Git &amp; GitHub</div>
+            <div class="skill-item"><span class="skill-dot"></span>REST APIs</div>
+            <div class="skill-item"><span class="skill-dot"></span>AJAX</div>
+            <div class="skill-item"><span class="skill-dot"></span>Select2</div>
+            <div class="skill-item"><span class="skill-dot"></span>QR Code Generation</div>
+            <div class="skill-item"><span class="skill-dot"></span>PDF Generation</div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">Soft Skills</h3>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-dot"></span>Problem Solving</div>
+            <div class="skill-item"><span class="skill-dot"></span>Fast Learning</div>
+            <div class="skill-item"><span class="skill-dot"></span>Time Management</div>
+            <div class="skill-item"><span class="skill-dot"></span>Attention to Detail</div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal">
+          <h3 class="skill-group-title">Languages Spoken</h3>
+          <div class="skill-items">
+            <div class="skill-item"><span class="skill-dot"></span>Arabic — Native</div>
+            <div class="skill-item"><span class="skill-dot"></span>English — Fluent</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="section section-dark" id="education">
+    <div class="container">
+      <div class="section-label reveal">04 / Education</div>
+      <h2 class="section-title reveal">Academic Background</h2>
+      <div class="timeline reveal">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Expected June 2026</div>
+            <h3>B.Sc. in Computer Science</h3>
+            <p class="timeline-school">CHI</p>
+            <p class="timeline-location">Cairo, Egypt</p>
+            <div class="timeline-courses">
+              <span class="course-tag">Data Structures &amp; Algorithms</span>
+              <span class="course-tag">Database Systems</span>
+              <span class="course-tag">Software Engineering</span>
+              <span class="course-tag">Web Development</span>
+              <span class="course-tag">Operating Systems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-label reveal">05 / Contact</div>
+      <div class="contact-grid">
+        <div class="contact-text reveal">
+          <h2 class="section-title">Let's work<br /><span class="accent">together</span></h2>
+          <p>
+            I'm currently looking for junior developer roles and internship opportunities. If you have a project in mind or just want to connect, my inbox is always open.
+          </p>
+        </div>
+        <div class="contact-links reveal">
+          <a href="mailto:youssefrefky66@gmail.com" class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">Email</span>
+              <span class="contact-value">youssefrefky66@gmail.com</span>
+            </div>
+          </a>
+          <a href="tel:+201095262732" class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.99 2.18 2 2 0 012.98 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">+20 109 526 2732</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/youssefrefky" target="_blank" rel="noopener" class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value">linkedin.com/in/youssefrefky</span>
+            </div>
+          </a>
+          <a href="https://github.com/Youssefsamir6" target="_blank" rel="noopener" class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.153-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            </div>
+            <div>
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value">github.com/Youssefsamir6</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>Designed &amp; built by Youssef Samir Refky &copy; <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
