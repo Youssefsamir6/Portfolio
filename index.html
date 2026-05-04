@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
@@ -37,26 +37,47 @@
 
   <!-- HERO -->
   <section class="hero" id="home">
+    <canvas id="particles"></canvas>
     <div class="hero-bg">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="grid-lines"></div>
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
     </div>
     <div class="hero-content">
-      <div class="hero-tag reveal">Full-Stack Developer</div>
+      <div class="hero-badge reveal">
+        <span class="hero-badge-dot"></span>
+        Available for Internship &amp; Junior Roles
+      </div>
       <h1 class="hero-name reveal">
-        Youssef<br /><span class="accent">Samir Refky</span>
+        <span class="hero-name-gradient">Youssef<br />Samir Refky</span>
       </h1>
+      <p class="hero-role reveal">
+        <span id="typed-role"></span><span class="cursor"></span>
+      </p>
       <p class="hero-sub reveal">
-        Building complete web experiences — from database to UI — with Python, Django, React &amp; modern JavaScript.
+        Building backend-heavy full-stack systems — from scalable REST APIs and AI-driven security platforms to polished responsive UIs.
       </p>
       <div class="hero-cta reveal">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="#projects" class="btn btn-primary"><span>View Projects</span></a>
+        <a href="cv.pdf" download="Youssef_Samir_Refky_CV.pdf" class="btn btn-cv">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
         <a href="#contact" class="btn btn-outline">Get in Touch</a>
       </div>
-      <div class="hero-scroll reveal">
-        <span>Scroll to explore</span>
-        <div class="scroll-line"></div>
+      <div class="hero-stats reveal">
+        <div class="hero-stat">
+          <div class="hero-stat-num">2+</div>
+          <div class="hero-stat-label">Projects Built</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Technologies</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">2026</div>
+          <div class="hero-stat-label">Graduating</div>
+        </div>
       </div>
     </div>
   </section>
@@ -64,49 +85,37 @@
   <!-- ABOUT -->
   <section class="section" id="about">
     <div class="container">
-      <div class="section-label reveal">01 / About</div>
+      <div class="section-label reveal">About</div>
       <div class="about-grid">
         <div class="about-text reveal">
-          <h2 class="section-title">Motivated to build.<br />Driven to grow.</h2>
+          <h2 class="section-title">Backend-first.<br /><span class="accent">Full-stack</span> ready.</h2>
           <p>
-            I'm a Computer Science student at CHI, graduating in June 2026. I specialise in full-stack web development — turning ideas into working, polished products from the ground up.
+            I'm a Computer Science student at CHI, graduating in 2026. I specialise in backend-heavy full-stack development — building scalable systems that are as solid under the hood as they are polished on the surface.
           </p>
           <p>
-            My experience spans building inventory systems with automated invoicing, integrating third-party libraries for QR codes and PDF generation, and crafting responsive interfaces people enjoy using.
+            My recent work spans AI-based security platforms with real-time monitoring, full-stack inventory systems with automated invoicing, and RESTful API architectures designed for modularity and growth.
           </p>
-          <div class="about-stats">
-            <div class="stat">
-              <span class="stat-number">1+</span>
-              <span class="stat-label">Full-stack Project Shipped</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">7+</span>
-              <span class="stat-label">Technologies Used</span>
-            </div>
-            <div class="stat">
-              <span class="stat-number">2026</span>
-              <span class="stat-label">Graduation Year</span>
-            </div>
-          </div>
+          <p>
+            I'm actively looking for a backend or full-stack engineering internship where I can contribute, learn from experienced teams, and grow fast.
+          </p>
         </div>
         <div class="about-card reveal">
           <div class="card-inner">
             <div class="card-header">
               <div class="dots"><span></span><span></span><span></span></div>
+              <span class="card-filename">youssef.config.js</span>
             </div>
-            <pre class="code-block"><code><span class="kw">const</span> <span class="var">youssef</span> = {
-  <span class="prop">role</span>: <span class="str">"Full-Stack Developer"</span>,
+            <pre class="code-block"><code><span class="comment">// Who I am</span>
+<span class="kw">const</span> <span class="var">youssef</span> = {
+  <span class="prop">role</span>: <span class="str">"Full-Stack Engineer"</span>,
+  <span class="prop">focus</span>: <span class="str">"Backend Systems"</span>,
   <span class="prop">location</span>: <span class="str">"Cairo, Egypt"</span>,
-  <span class="prop">languages</span>: [
-    <span class="str">"Python"</span>, <span class="str">"JavaScript"</span>,
-    <span class="str">"Java"</span>, <span class="str">"C++"</span>, <span class="str">"SQL"</span>
-  ],
-  <span class="prop">stack</span>: [
-    <span class="str">"Django"</span>, <span class="str">"React.js"</span>,
-    <span class="str">"Node.js"</span>, <span class="str">"PostgreSQL"</span>
-  ],
+  <span class="prop">backend</span>: [<span class="str">"Django"</span>, <span class="str">"Node.js"</span>, <span class="str">"Express"</span>],
+  <span class="prop">frontend</span>: [<span class="str">"React"</span>, <span class="str">"HTML"</span>, <span class="str">"CSS"</span>],
+  <span class="prop">db</span>: [<span class="str">"PostgreSQL"</span>, <span class="str">"MongoDB"</span>],
+  <span class="prop">languages</span>: [<span class="str">"Python"</span>, <span class="str">"JavaScript"</span>],
   <span class="prop">available</span>: <span class="kw">true</span>,
-  <span class="prop">lookingFor</span>: <span class="str">"Junior / Internship"</span>
+  <span class="prop">seeking</span>: <span class="str">"Internship / Junior Role"</span>,
 };</code></pre>
           </div>
         </div>
@@ -117,10 +126,60 @@
   <!-- PROJECTS -->
   <section class="section section-dark" id="projects">
     <div class="container">
-      <div class="section-label reveal">02 / Projects</div>
+      <div class="section-label reveal">Projects</div>
       <h2 class="section-title reveal">What I've built</h2>
       <div class="projects-grid">
 
+        <!-- Featured: Graduation Project -->
+        <article class="project-card project-card--featured reveal">
+          <div class="project-main">
+            <div class="project-top">
+              <div class="project-icon">🔐</div>
+              <div style="display:flex;gap:10px;align-items:center;">
+                <span class="project-badge">Graduation Project</span>
+              </div>
+            </div>
+            <h3 class="project-title">Smart Access &amp; Monitoring System</h3>
+            <p class="project-date">2025 – Present</p>
+            <p class="project-desc">
+              AI-based campus security system for face recognition, access control, and attendance tracking — built with a modular architecture designed to scale.
+            </p>
+            <ul class="project-highlights">
+              <li>AI-powered face recognition &amp; access control</li>
+              <li>Real-time logs, alerts &amp; blacklist detection</li>
+              <li>Backend services for access decisions &amp; monitoring</li>
+              <li>Modular architecture — CV pipeline &amp; admin dashboard ready</li>
+            </ul>
+            <div class="project-tags">
+              <span>Node.js</span><span>Express</span><span>REST APIs</span><span>MongoDB</span><span>System Design</span>
+            </div>
+          </div>
+          <div class="project-detail">
+            <div class="card-inner" style="height:100%;">
+              <div class="card-header">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <span class="card-filename">access.controller.js</span>
+              </div>
+              <pre class="code-block"><code><span class="comment">// Real-time access decision</span>
+<span class="kw">async</span> <span class="kw">function</span> <span class="var">checkAccess</span>(faceData) {
+  <span class="kw">const</span> match = <span class="kw">await</span>
+    faceRecognition.<span class="var">identify</span>(faceData);
+
+  <span class="kw">if</span> (blacklist.<span class="var">has</span>(match.id)) {
+    alerts.<span class="var">trigger</span>(<span class="str">"BLACKLIST_HIT"</span>, match);
+    <span class="kw">return</span> { granted: <span class="kw">false</span> };
+  }
+
+  logs.<span class="var">record</span>({ id: match.id,
+    time: Date.<span class="var">now</span>(), granted: <span class="kw">true</span> });
+
+  <span class="kw">return</span> { granted: <span class="kw">true</span>, user: match };
+}</code></pre>
+            </div>
+          </div>
+        </article>
+
+        <!-- Inventory System -->
         <article class="project-card reveal">
           <div class="project-top">
             <div class="project-icon">📦</div>
@@ -133,29 +192,24 @@
           <h3 class="project-title">Inventory &amp; Invoicing System</h3>
           <p class="project-date">March 2025 – June 2025</p>
           <p class="project-desc">
-            A full-stack web application for inventory management with automated invoicing. Features real-time price calculations, stock tracking, PDF invoice generation, and QR code integration.
+            Full-stack inventory management with automated PDF invoicing, QR code product linking, real-time pricing logic, and a responsive UI.
           </p>
           <ul class="project-highlights">
-            <li>Dynamic forms with real-time price calculations</li>
             <li>Automated PDF invoice generation</li>
-            <li>QR code functionality for products</li>
+            <li>QR code product linking</li>
+            <li>Real-time stock tracking &amp; pricing</li>
             <li>AJAX-powered search with Select2</li>
-            <li>Responsive UI with Tailwind CSS</li>
           </ul>
           <div class="project-tags">
-            <span>Django</span>
-            <span>Python</span>
-            <span>JavaScript</span>
-            <span>PostgreSQL</span>
-            <span>Tailwind CSS</span>
-            <span>AJAX</span>
+            <span>Django</span><span>Python</span><span>PostgreSQL</span><span>JavaScript</span><span>Tailwind CSS</span>
           </div>
         </article>
 
+        <!-- Placeholder -->
         <article class="project-card project-card--placeholder reveal">
           <div class="placeholder-inner">
             <div class="plus-icon">+</div>
-            <p>More projects coming soon</p>
+            <p>More coming soon</p>
             <span>Currently building something new</span>
           </div>
         </article>
@@ -167,66 +221,56 @@
   <!-- SKILLS -->
   <section class="section" id="skills">
     <div class="container">
-      <div class="section-label reveal">03 / Skills</div>
+      <div class="section-label reveal">Skills</div>
       <h2 class="section-title reveal">Tools &amp; Technologies</h2>
-      <div class="skills-grid">
+      <div class="skills-wrapper">
 
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title">Languages</h3>
-          <div class="skill-items">
-            <div class="skill-item"><span class="skill-dot"></span>Python</div>
-            <div class="skill-item"><span class="skill-dot"></span>JavaScript</div>
-            <div class="skill-item"><span class="skill-dot"></span>Java</div>
-            <div class="skill-item"><span class="skill-dot"></span>C++</div>
-            <div class="skill-item"><span class="skill-dot"></span>SQL</div>
-            <div class="skill-item"><span class="skill-dot"></span>HTML &amp; CSS</div>
+        <div class="reveal">
+          <div class="skills-category-title">Languages</div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="skill-pill-icon">🐍</span>Python</div>
+            <div class="skill-pill"><span class="skill-pill-icon">🟨</span>JavaScript</div>
+            <div class="skill-pill"><span class="skill-pill-icon">☕</span>Java</div>
+            <div class="skill-pill"><span class="skill-pill-icon">⚙️</span>C++</div>
+            <div class="skill-pill"><span class="skill-pill-icon">🗄️</span>SQL</div>
+            <div class="skill-pill"><span class="skill-pill-icon">🌐</span>HTML &amp; CSS</div>
           </div>
         </div>
 
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title">Frameworks &amp; Libraries</h3>
-          <div class="skill-items">
-            <div class="skill-item"><span class="skill-dot"></span>Django</div>
-            <div class="skill-item"><span class="skill-dot"></span>React.js</div>
-            <div class="skill-item"><span class="skill-dot"></span>Node.js</div>
-            <div class="skill-item"><span class="skill-dot"></span>Tailwind CSS</div>
+        <div class="reveal">
+          <div class="skills-category-title">Backend</div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="skill-pill-icon">🦄</span>Django</div>
+            <div class="skill-pill"><span class="skill-pill-icon">🟢</span>Node.js</div>
+            <div class="skill-pill"><span class="skill-pill-icon">🚂</span>Express</div>
+            <div class="skill-pill"><span class="skill-pill-icon">🔗</span>REST APIs</div>
           </div>
         </div>
 
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title">Databases</h3>
-          <div class="skill-items">
-            <div class="skill-item"><span class="skill-dot"></span>PostgreSQL</div>
+        <div class="reveal">
+          <div class="skills-category-title">Frontend</div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="skill-pill-icon">⚛️</span>React.js</div>
+            <div class="skill-pill"><span class="skill-pill-icon">💨</span>Tailwind CSS</div>
+            <div class="skill-pill"><span class="skill-pill-icon">⚡</span>AJAX</div>
           </div>
         </div>
 
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title">Tools &amp; Technologies</h3>
-          <div class="skill-items">
-            <div class="skill-item"><span class="skill-dot"></span>Git &amp; GitHub</div>
-            <div class="skill-item"><span class="skill-dot"></span>REST APIs</div>
-            <div class="skill-item"><span class="skill-dot"></span>AJAX</div>
-            <div class="skill-item"><span class="skill-dot"></span>Select2</div>
-            <div class="skill-item"><span class="skill-dot"></span>QR Code Generation</div>
-            <div class="skill-item"><span class="skill-dot"></span>PDF Generation</div>
+        <div class="reveal">
+          <div class="skills-category-title">Databases</div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="skill-pill-icon">🐘</span>PostgreSQL</div>
+            <div class="skill-pill"><span class="skill-pill-icon">🍃</span>MongoDB</div>
           </div>
         </div>
 
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title">Soft Skills</h3>
-          <div class="skill-items">
-            <div class="skill-item"><span class="skill-dot"></span>Problem Solving</div>
-            <div class="skill-item"><span class="skill-dot"></span>Fast Learning</div>
-            <div class="skill-item"><span class="skill-dot"></span>Time Management</div>
-            <div class="skill-item"><span class="skill-dot"></span>Attention to Detail</div>
-          </div>
-        </div>
-
-        <div class="skill-group reveal">
-          <h3 class="skill-group-title">Languages Spoken</h3>
-          <div class="skill-items">
-            <div class="skill-item"><span class="skill-dot"></span>Arabic — Native</div>
-            <div class="skill-item"><span class="skill-dot"></span>English — Fluent</div>
+        <div class="reveal">
+          <div class="skills-category-title">Tools &amp; Other</div>
+          <div class="skill-pills">
+            <div class="skill-pill"><span class="skill-pill-icon">🐙</span>Git &amp; GitHub</div>
+            <div class="skill-pill"><span class="skill-pill-icon">🔍</span>Select2</div>
+            <div class="skill-pill"><span class="skill-pill-icon">📄</span>PDF Generation</div>
+            <div class="skill-pill"><span class="skill-pill-icon">📷</span>QR Code Generation</div>
           </div>
         </div>
 
@@ -237,15 +281,15 @@
   <!-- EDUCATION -->
   <section class="section section-dark" id="education">
     <div class="container">
-      <div class="section-label reveal">04 / Education</div>
+      <div class="section-label reveal">Education</div>
       <h2 class="section-title reveal">Academic Background</h2>
       <div class="timeline reveal">
         <div class="timeline-item">
           <div class="timeline-dot"></div>
           <div class="timeline-content">
-            <div class="timeline-date">Expected June 2026</div>
+            <div class="timeline-date">Expected 2026</div>
             <h3>B.Sc. in Computer Science</h3>
-            <p class="timeline-school">CHI</p>
+            <p class="timeline-school">CHI for Engineering, Computer Science and Management</p>
             <p class="timeline-location">Cairo, Egypt</p>
             <div class="timeline-courses">
               <span class="course-tag">Data Structures &amp; Algorithms</span>
@@ -263,13 +307,16 @@
   <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="container">
-      <div class="section-label reveal">05 / Contact</div>
+      <div class="section-label reveal">Contact</div>
       <div class="contact-grid">
         <div class="contact-text reveal">
-          <h2 class="section-title">Let's work<br /><span class="accent">together</span></h2>
-          <p>
-            I'm currently looking for junior developer roles and internship opportunities. If you have a project in mind or just want to connect, my inbox is always open.
-          </p>
+          <h2 class="section-title">Let's build<br /><span class="accent">something</span> great</h2>
+          <p>I'm looking for backend or full-stack engineering internship opportunities. Whether you have a role in mind or just want to connect — reach out, I'd love to chat.</p>
+          <br />
+          <a href="cv.pdf" download="Youssef_Samir_Refky_CV.pdf" class="btn btn-cv" style="display:inline-flex;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download CV
+          </a>
         </div>
         <div class="contact-links reveal">
           <a href="mailto:youssefrefky66@gmail.com" class="contact-item">
@@ -319,6 +366,11 @@
       <p>Designed &amp; built by Youssef Samir Refky &copy; <span id="year"></span></p>
     </div>
   </footer>
+
+  <!-- BACK TO TOP -->
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <script src="script.js"></script>
 </body>
