@@ -11,11 +11,18 @@
 </head>
 <body>
 
+  <!-- SCROLL PROGRESS -->
+  <div id="scroll-progress"></div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">Copied to clipboard!</div>
+
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
       <span class="nav-logo">YSR</span>
-      <ul class="nav-links">
+      <ul class="nav-links" id="navLinks">
+        <div class="nav-pill" id="navPill"></div>
         <li><a href="#about">About</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -55,7 +62,7 @@
         <span id="typed-role"></span><span class="cursor"></span>
       </p>
       <p class="hero-sub reveal">
-        Building backend-heavy full-stack systems — from scalable REST APIs and AI-driven security platforms to polished responsive UIs.
+        I engineer production-ready systems — AI-driven security backends, scalable REST APIs, and the clean UIs that bring them to life.
       </p>
       <div class="hero-cta reveal">
         <a href="#projects" class="btn btn-primary"><span>View Projects</span></a>
@@ -67,18 +74,24 @@
       </div>
       <div class="hero-stats reveal">
         <div class="hero-stat">
-          <div class="hero-stat-num">2+</div>
+          <div class="hero-stat-num" data-target="5" data-suffix="+">0+</div>
           <div class="hero-stat-label">Projects Built</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-num" data-target="12" data-suffix="+">0+</div>
           <div class="hero-stat-label">Technologies</div>
         </div>
         <div class="hero-stat">
-          <div class="hero-stat-num">2026</div>
+          <div class="hero-stat-num" data-target="2026" data-suffix="">0</div>
           <div class="hero-stat-label">Graduating</div>
         </div>
       </div>
+    </div>
+
+    <!-- SCROLL INDICATOR -->
+    <div class="scroll-indicator" id="scrollIndicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+      <div class="scroll-mouse"></div>
+      <span>scroll</span>
     </div>
   </section>
 
@@ -98,6 +111,14 @@
           <p>
             I'm actively looking for a backend or full-stack engineering internship where I can contribute, learn from experienced teams, and grow fast.
           </p>
+          <div class="learning-row">
+            <div class="learning-label">Currently learning</div>
+            <div class="learning-pills">
+              <span class="learning-pill"><span class="learning-pill-dot"></span>TypeScript</span>
+              <span class="learning-pill"><span class="learning-pill-dot"></span>Docker</span>
+              <span class="learning-pill"><span class="learning-pill-dot"></span>System Design</span>
+            </div>
+          </div>
         </div>
         <div class="about-card reveal">
           <div class="card-inner">
@@ -223,54 +244,106 @@
     <div class="container">
       <div class="section-label reveal">Skills</div>
       <h2 class="section-title reveal">Tools &amp; Technologies</h2>
-      <div class="skills-wrapper">
+      <div class="skills-grid">
 
-        <div class="reveal">
+        <div class="skill-group reveal">
           <div class="skills-category-title">Languages</div>
-          <div class="skill-pills">
-            <div class="skill-pill"><span class="skill-pill-icon">🐍</span>Python</div>
-            <div class="skill-pill"><span class="skill-pill-icon">🟨</span>JavaScript</div>
-            <div class="skill-pill"><span class="skill-pill-icon">☕</span>Java</div>
-            <div class="skill-pill"><span class="skill-pill-icon">⚙️</span>C++</div>
-            <div class="skill-pill"><span class="skill-pill-icon">🗄️</span>SQL</div>
-            <div class="skill-pill"><span class="skill-pill-icon">🌐</span>HTML &amp; CSS</div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🐍</span>Python</div>
+            <div class="skill-bar-wrap"><div class="skill-bar purple" data-width="90"></div></div>
+            <div class="skill-level">90%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🟨</span>JavaScript</div>
+            <div class="skill-bar-wrap"><div class="skill-bar purple" data-width="85"></div></div>
+            <div class="skill-level">85%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🗄️</span>SQL</div>
+            <div class="skill-bar-wrap"><div class="skill-bar purple" data-width="80"></div></div>
+            <div class="skill-level">80%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">☕</span>Java</div>
+            <div class="skill-bar-wrap"><div class="skill-bar purple" data-width="65"></div></div>
+            <div class="skill-level">65%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">⚙️</span>C++</div>
+            <div class="skill-bar-wrap"><div class="skill-bar purple" data-width="60"></div></div>
+            <div class="skill-level">60%</div>
           </div>
         </div>
 
-        <div class="reveal">
+        <div class="skill-group reveal">
           <div class="skills-category-title">Backend</div>
-          <div class="skill-pills">
-            <div class="skill-pill"><span class="skill-pill-icon">🦄</span>Django</div>
-            <div class="skill-pill"><span class="skill-pill-icon">🟢</span>Node.js</div>
-            <div class="skill-pill"><span class="skill-pill-icon">🚂</span>Express</div>
-            <div class="skill-pill"><span class="skill-pill-icon">🔗</span>REST APIs</div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🦄</span>Django</div>
+            <div class="skill-bar-wrap"><div class="skill-bar blue" data-width="88"></div></div>
+            <div class="skill-level">88%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🟢</span>Node.js</div>
+            <div class="skill-bar-wrap"><div class="skill-bar blue" data-width="82"></div></div>
+            <div class="skill-level">82%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🚂</span>Express</div>
+            <div class="skill-bar-wrap"><div class="skill-bar blue" data-width="80"></div></div>
+            <div class="skill-level">80%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🔗</span>REST APIs</div>
+            <div class="skill-bar-wrap"><div class="skill-bar blue" data-width="85"></div></div>
+            <div class="skill-level">85%</div>
           </div>
         </div>
 
-        <div class="reveal">
+        <div class="skill-group reveal">
           <div class="skills-category-title">Frontend</div>
-          <div class="skill-pills">
-            <div class="skill-pill"><span class="skill-pill-icon">⚛️</span>React.js</div>
-            <div class="skill-pill"><span class="skill-pill-icon">💨</span>Tailwind CSS</div>
-            <div class="skill-pill"><span class="skill-pill-icon">⚡</span>AJAX</div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">⚛️</span>React.js</div>
+            <div class="skill-bar-wrap"><div class="skill-bar pink" data-width="72"></div></div>
+            <div class="skill-level">72%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">💨</span>Tailwind CSS</div>
+            <div class="skill-bar-wrap"><div class="skill-bar pink" data-width="78"></div></div>
+            <div class="skill-level">78%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🌐</span>HTML &amp; CSS</div>
+            <div class="skill-bar-wrap"><div class="skill-bar pink" data-width="85"></div></div>
+            <div class="skill-level">85%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">⚡</span>AJAX</div>
+            <div class="skill-bar-wrap"><div class="skill-bar pink" data-width="75"></div></div>
+            <div class="skill-level">75%</div>
           </div>
         </div>
 
-        <div class="reveal">
-          <div class="skills-category-title">Databases</div>
-          <div class="skill-pills">
-            <div class="skill-pill"><span class="skill-pill-icon">🐘</span>PostgreSQL</div>
-            <div class="skill-pill"><span class="skill-pill-icon">🍃</span>MongoDB</div>
+        <div class="skill-group reveal">
+          <div class="skills-category-title">Databases &amp; Tools</div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🐘</span>PostgreSQL</div>
+            <div class="skill-bar-wrap"><div class="skill-bar green" data-width="82"></div></div>
+            <div class="skill-level">82%</div>
           </div>
-        </div>
-
-        <div class="reveal">
-          <div class="skills-category-title">Tools &amp; Other</div>
-          <div class="skill-pills">
-            <div class="skill-pill"><span class="skill-pill-icon">🐙</span>Git &amp; GitHub</div>
-            <div class="skill-pill"><span class="skill-pill-icon">🔍</span>Select2</div>
-            <div class="skill-pill"><span class="skill-pill-icon">📄</span>PDF Generation</div>
-            <div class="skill-pill"><span class="skill-pill-icon">📷</span>QR Code Generation</div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🍃</span>MongoDB</div>
+            <div class="skill-bar-wrap"><div class="skill-bar green" data-width="75"></div></div>
+            <div class="skill-level">75%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">🐙</span>Git &amp; GitHub</div>
+            <div class="skill-bar-wrap"><div class="skill-bar green" data-width="85"></div></div>
+            <div class="skill-level">85%</div>
+          </div>
+          <div class="skill-row">
+            <div class="skill-name"><span class="skill-icon">📄</span>PDF &amp; QR Gen</div>
+            <div class="skill-bar-wrap"><div class="skill-bar green" data-width="80"></div></div>
+            <div class="skill-level">80%</div>
           </div>
         </div>
 
@@ -323,25 +396,27 @@
             <div class="contact-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
             </div>
-            <div>
+            <div class="contact-item-body">
               <span class="contact-label">Email</span>
               <span class="contact-value">youssefrefky66@gmail.com</span>
             </div>
+            <button class="copy-btn" data-copy="youssefrefky66@gmail.com" onclick="event.preventDefault();copyText(this)">Copy</button>
           </a>
           <a href="tel:+201095262732" class="contact-item">
             <div class="contact-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.81 19.79 19.79 0 01.99 2.18 2 2 0 012.98 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
             </div>
-            <div>
+            <div class="contact-item-body">
               <span class="contact-label">Phone</span>
               <span class="contact-value">+20 109 526 2732</span>
             </div>
+            <button class="copy-btn" data-copy="+201095262732" onclick="event.preventDefault();copyText(this)">Copy</button>
           </a>
           <a href="https://linkedin.com/in/youssefrefky" target="_blank" rel="noopener" class="contact-item">
             <div class="contact-icon">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
             </div>
-            <div>
+            <div class="contact-item-body">
               <span class="contact-label">LinkedIn</span>
               <span class="contact-value">linkedin.com/in/youssefrefky</span>
             </div>
@@ -350,7 +425,7 @@
             <div class="contact-icon">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.153-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
             </div>
-            <div>
+            <div class="contact-item-body">
               <span class="contact-label">GitHub</span>
               <span class="contact-value">github.com/Youssefsamir6</span>
             </div>
@@ -363,7 +438,20 @@
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p>Designed &amp; built by Youssef Samir Refky &copy; <span id="year"></span></p>
+      <div class="footer-inner">
+        <p class="footer-copy">Designed &amp; built by Youssef Samir Refky &copy; <span id="year"></span></p>
+        <div class="footer-socials">
+          <a href="https://github.com/Youssefsamir6" target="_blank" rel="noopener" class="footer-social" title="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.153-1.11-1.461-1.11-1.461-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.744 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/youssefrefky" target="_blank" rel="noopener" class="footer-social" title="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="mailto:youssefrefky66@gmail.com" class="footer-social" title="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
