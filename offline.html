@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>No Internet — YSR</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #05050d; --accent: #7c6dfa; --accent-2: #00d4ff; --accent-3: #ff6b9d;
+      --text: #eeeef8; --text-muted: #8888b8; --text-faint: #44445a;
+      --border: rgba(255,255,255,0.06); --mono: 'JetBrains Mono', monospace;
+    }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg); color: var(--text);
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; overflow: hidden; position: relative;
+    }
+    .orb {
+      position: fixed; border-radius: 50%; filter: blur(120px); pointer-events: none;
+      animation: drift 14s ease-in-out infinite;
+    }
+    .orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, #00d4ff, transparent); opacity: 0.07; top: -150px; left: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, #7c6dfa, transparent); opacity: 0.07; bottom: -100px; right: -100px; animation-delay: -7s; }
+    @keyframes drift { 0%,100%{transform:translate(0,0)} 33%{transform:translate(20px,-15px)} 66%{transform:translate(-15px,20px)} }
+
+    .container {
+      text-align: center; padding: 40px 28px;
+      position: relative; z-index: 1; max-width: 680px;
+    }
+
+    /* Wifi icon with X */
+    .wifi-icon {
+      width: 80px; height: 80px; margin: 0 auto 28px;
+      position: relative; display: flex; align-items: center; justify-content: center;
+    }
+    .wifi-icon svg { width: 80px; height: 80px; color: var(--text-faint); }
+    .wifi-slash { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+    .wifi-slash::before {
+      content: ''; position: absolute;
+      width: 3px; height: 90px;
+      background: var(--accent-3);
+      transform: rotate(45deg);
+      border-radius: 2px;
+      box-shadow: 0 0 12px var(--accent-3);
+    }
+
+    .badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 11px; color: var(--accent-2);
+      border: 1px solid rgba(0,212,255,0.25); background: rgba(0,212,255,0.06);
+      padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .badge-dot { width: 6px; height: 6px; background: var(--accent-3); border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.3;transform:scale(0.6)} }
+
+    h1 { font-size: clamp(22px, 3.5vw, 34px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; }
+    p { color: var(--text-muted); font-size: 15.5px; line-height: 1.75; }
+
+    /* Terminal */
+    .terminal {
+      background: #0c0c18; border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden; margin: 32px 0;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,212,255,0.05);
+      text-align: left;
+    }
+    .terminal-bar {
+      background: rgba(255,255,255,0.025); padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; } .dot-y { background: #febc2e; } .dot-g { background: #28c840; }
+    .terminal-title { font-family: var(--mono); font-size: 11px; color: var(--text-faint); margin-left: 8px; }
+    .terminal-body { padding: 20px 24px; font-family: var(--mono); font-size: 13px; line-height: 1.9; }
+    .line { display: flex; gap: 10px; }
+    .prompt { color: var(--accent-2); flex-shrink: 0; }
+    .cmd { color: var(--text-muted); }
+    .out-error { color: var(--accent-3); }
+    .out-warn { color: #febc2e; }
+    .out-ok { color: #34d399; }
+    .out-dim { color: var(--text-faint); }
+    .typing-cursor { display: inline-block; width: 8px; height: 14px; background: var(--accent-2); vertical-align: middle; margin-left: 2px; animation: blink 1s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* Retry progress bar */
+    .retry-wrap { margin-top: 8px; }
+    .retry-label { font-family: var(--mono); font-size: 11px; color: var(--text-faint); margin-bottom: 8px; display: flex; justify-content: space-between; }
+    .retry-bar { height: 3px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden; }
+    .retry-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: 2px; width: 0%; animation: retryAnim 4s linear infinite; }
+    @keyframes retryAnim { 0%{width:0%;opacity:1} 85%{width:100%;opacity:1} 100%{width:100%;opacity:0} }
+
+    .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 32px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 26px; border-radius: 100px; font-size: 14px; font-weight: 600;
+      cursor: pointer; transition: all 0.3s; border: 2px solid transparent;
+      text-decoration: none; font-family: inherit;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), #5b4de0); color: #fff; }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(124,109,250,0.4); }
+    .btn-outline { border-color: var(--border); color: var(--text-muted); background: rgba(255,255,255,0.03); }
+    .btn-outline:hover { border-color: var(--accent-2); color: var(--accent-2); transform: translateY(-3px); }
+
+    /* Status pill that auto-updates */
+    #status-pill {
+      font-family: var(--mono); font-size: 11px;
+      padding: 4px 12px; border-radius: 100px;
+      display: inline-block; margin-top: 16px;
+      transition: all 0.4s;
+    }
+    .status-offline { background: rgba(255,107,157,0.1); color: var(--accent-3); border: 1px solid rgba(255,107,157,0.2); }
+    .status-online { background: rgba(52,211,153,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+  </style>
+</head>
+<body>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+
+  <div class="container">
+    <div class="badge"><span class="badge-dot"></span>connection: null</div>
+
+    <div class="wifi-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path d="M5 12.55a11 11 0 0114.08 0"/>
+        <path d="M1.42 9a16 16 0 0121.16 0"/>
+        <path d="M8.53 16.11a6 6 0 016.95 0"/>
+        <circle cx="12" cy="20" r="1" fill="currentColor"/>
+      </svg>
+      <div class="wifi-slash"></div>
+    </div>
+
+    <h1>You're offline.<br /><span style="background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Even the internet left.</span></h1>
+    <p>Your connection seems to have segfaulted. Classic. Check your cable, your router, your life choices — then come back.</p>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+        <span class="terminal-title">network-diagnostics.sh</span>
+      </div>
+      <div class="terminal-body">
+        <div class="line"><span class="prompt">$</span><span class="cmd">ping google.com</span></div>
+        <div class="line"><span class="out-error">PING FAILED:</span><span class="cmd">&nbsp;Network is unreachable</span></div>
+        <div class="line"><span class="out-dim"># Trying backup servers...</span></div>
+        <div class="line"><span class="out-error">PING FAILED:</span><span class="cmd">&nbsp;Still unreachable</span></div>
+        <div class="line"><span class="out-dim"># Have you tried turning it off and on again?</span></div>
+        <div class="line"><span class="out-warn">Suggestion:</span><span class="cmd">&nbsp;touch grass, check router</span></div>
+        <div class="line"><span class="out-dim"># Auto-retry in progress...</span></div>
+        <div class="line" style="margin-top:4px;">
+          <div style="flex:1;">
+            <div class="retry-wrap">
+              <div class="retry-label"><span>reconnecting...</span><span id="retry-count">attempt 1</span></div>
+              <div class="retry-bar"><div class="retry-fill"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="line" style="margin-top:8px;"><span class="prompt">$</span><span class="typing-cursor"></span></div>
+      </div>
+    </div>
+
+    <div id="status-pill" class="status-offline">● offline</div>
+
+    <div class="actions">
+      <button class="btn btn-primary" onclick="window.location.reload()">Try again</button>
+      <a href="/" class="btn btn-outline">Back to portfolio</a>
+    </div>
+  </div>
+
+  <script>
+    let attempt = 1;
+    const retryCount = document.getElementById('retry-count');
+    const pill = document.getElementById('status-pill');
+
+    setInterval(() => {
+      attempt++;
+      retryCount.textContent = `attempt ${attempt}`;
+    }, 4000);
+
+    window.addEventListener('online', () => {
+      pill.textContent = '● back online!';
+      pill.className = 'status-online';
+      setTimeout(() => window.location.reload(), 1200);
+    });
+
+    window.addEventListener('offline', () => {
+      pill.textContent = '● offline';
+      pill.className = 'status-offline';
+    });
+  </script>
+</body>
+</html>
