@@ -111,7 +111,7 @@ class Particle {
     this.vx = (Math.random() - 0.5) * 0.3;
     this.vy = (Math.random() - 0.5) * 0.3;
     this.alpha = Math.random() * 0.5 + 0.1;
-    this.color = Math.random() > 0.5 ? '124,109,250' : '0,212,255';
+    this.color = Math.random() > 0.5 ? '255,34,68' : '255,119,0';
   }
   update() {
     this.x += this.vx; this.y += this.vy;
@@ -139,7 +139,7 @@ function drawConnections() {
       ctx.beginPath();
       ctx.moveTo(p.x, p.y);
       ctx.lineTo(mouseX, mouseY);
-      ctx.strokeStyle = `rgba(124,109,250,${0.15 * (1 - dist / 120)})`;
+      ctx.strokeStyle = `rgba(255,34,68,${0.15 * (1 - dist / 120)})`;
       ctx.lineWidth = 0.5;
       ctx.stroke();
     }
@@ -150,7 +150,7 @@ function drawConnections() {
       if (d2 < 80) {
         ctx.beginPath();
         ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-        ctx.strokeStyle = `rgba(124,109,250,${0.06 * (1 - d2 / 80)})`;
+        ctx.strokeStyle = `rgba(255,34,68,${0.06 * (1 - d2 / 80)})`;
         ctx.lineWidth = 0.4;
         ctx.stroke();
       }
